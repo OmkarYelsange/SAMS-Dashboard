@@ -10,6 +10,7 @@ export default function Dashboard() {
   const [timeframe, setTimeframe] = useState(10);
   const [theme, setTheme] = useState("dark");
   const [historyRange, setHistoryRange] = useState("realtime");
+  const [lastAlertTime, setLastAlertTime] = useState(0);
 
   const navigate = useNavigate();
 
@@ -19,6 +20,12 @@ export default function Dashboard() {
     const interval = setInterval(fetchData, 2000);
     return () => clearInterval(interval);
   }, [historyRange]);
+
+  useEffect(() => {
+    if ("Notification" in window) {
+      Notification.requestPermission();
+    }
+  }, []);
 
   const fetchData = async () => {
     try {
@@ -68,9 +75,49 @@ export default function Dashboard() {
   }
 
   useEffect(() => {
-    if (latestTemp > 35) toast.error("🔥 Temperature Critical!");
-    if (latestVibration > 15) toast.error("⚠️ Vibration Critical!");
+    const now = Date.now();
+
+    if (latestTemp > 35 || latestVibration > 15) {
+      if (now - lastAlertTime > 60000) {
+        // 1 minute cooldown
+        setLastAlertTime(now);
+
+        axios.post("http://localhost:5000/alert/email", {
+          message: `CRITICAL ALERT!
+Temperature: ${latestTemp}°C
+Vibration: ${latestVibration}
+
+Immediate action required.`,
+        });
+
+        toast.error("⚠️ CRITICAL CONDITION DETECTED");
+
+        if (Notification.permission === "granted") {
+          new Notification("SAMS ALERT", {
+            body: "Machine in DANGER condition. Immediate action required.",
+          });
+        }
+      }
+    }
   }, [latestTemp, latestVibration]);
+
+  useEffect(() => {
+    if (status === "DANGER") {
+      axios.post("http://localhost:5000/alert/telegram/send", {
+        message:
+          "🚨 SAMS ALERT: Machine is in DANGER condition. Immediate action required.",
+      });
+      const interval = setInterval(() => {
+        if (Notification.permission === "granted") {
+          new Notification("SAMS ALERT", {
+            body: "Machine still in DANGER condition",
+          });
+        }
+      }, 30000); // every 30 seconds
+
+      return () => clearInterval(interval);
+    }
+  }, [status]);
 
   const exportCSV = () => {
     const rows = data.map((d) => `${d.time},${d.sensor},${d.value}`);
