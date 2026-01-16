@@ -3,21 +3,6 @@
 
 **SAMS-Dashboard** is a web-based dashboard application developed to provide a unified interface for monitoring, managing, and interacting with the core features of the SAMS project. It is built with a modern frontend and backend architecture to deliver responsive user experiences and scalable performance.
 
-## Table of Contents
-
-- [About](#about)  
-- [Features](#features)  
-- [Tech Stack](#tech-stack)  
-- [Getting Started](#getting-started)  
-  - [Prerequisites](#prerequisites)  
-  - [Installation](#installation)  
-  - [Running the Application](#running-the-application)  
-- [Usage](#usage)  
-- [Project Structure](#project-structure)  
-- [Contributing](#contributing)  
-- [License](#license)  
-- [Contact](#contact)
-
 ## About
 
 The SAMS-Dashboard project serves as a central UI for interacting with the SAMS service ecosystem. It simplifies common workflows by aggregating data, visualizing insights, and providing controls from a single interface.
