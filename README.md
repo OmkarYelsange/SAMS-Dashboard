@@ -22,7 +22,6 @@ The SAMS-Dashboard project serves as a central UI for interacting with the SAMS 
 - **Database:** MongoDB / Firebase (if applicable)  
 - **Deployment:** Docker, AWS (optional)  
 
-> Update this section if your stack differs.
 
 ## Getting Started
 
