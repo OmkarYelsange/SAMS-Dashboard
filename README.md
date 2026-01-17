@@ -103,6 +103,7 @@ http://localhost:5173
 🖥 Project Structure
 
 ```
+
 SAMS-Dashboard/
 │
 ├── frontend/
@@ -118,30 +119,17 @@ SAMS-Dashboard/
 │   └── logo.png
 │
 └── README.md
+
 ```
 
-📸 Screenshots
-Add screenshots inside the assets/ folder and update paths below.
-Copy code
-Markdown
-![Dashboard](assets/dashboard.png)
-![Analytics](assets/analytics.png)
-🔮 Roadmap
-[ ] Role-based access control
-[ ] Advanced analytics charts
-[ ] PDF report generation
-[ ] MQTT integration
-[ ] Cloud deployment
-[ ] Mobile app version
-
 🤝 Contributing
-
-Contributions are welcome!
-Fork the repo
-Create a feature branch
-Commit your changes
-Push to your fork
-Submit a Pull Request
+ 
+- Contributions are welcome!
+- Fork the repo
+- Create a feature branch
+- Commit your changes
+- Push to your fork
+- Submit a Pull Request
 
 📄 License
 
