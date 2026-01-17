@@ -1,7 +1,5 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/OmkarYelsange/SAMS-Dashboard/main/assets/logo.png" width="180" />
-
 # SAMS-Dashboard  
 ### Smart Analytics & Monitoring System  
 
