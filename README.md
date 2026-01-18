@@ -138,9 +138,9 @@ You are free to use, modify, and distribute it.
 
 Omkar Yelsange 
 
-- 📧 Email: omkaryelsange1010@gmail.com 
-- 🔗 GitHub: https://github.com/OmkarYelsange
-- 🔗 LinkedIn: https://linkedin.com/in/omkar-yelsange 
+- 📧 Email: (OmkarY)[omkaryelsange1010@gmail.com]
+- 🔗 GitHub: (OmkarYelsange)[https://github.com/OmkarYelsange]
+- 🔗 LinkedIn: (Omkar-Yelsange)[https://linkedin.com/in/omkar-yelsange]
 
 
 ⭐ Support
