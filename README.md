@@ -129,9 +129,6 @@ SAMS-Dashboard/
 - Push to your fork
 - Submit a Pull Request
 
-📄 License
-
-This project is .
 
 📬 Contact
 
