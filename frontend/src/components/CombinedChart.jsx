@@ -1,50 +1,41 @@
+import "../chartConfig";
 import { Line } from "react-chartjs-2";
 
 export default function CombinedChart({ temp, vib }) {
   return (
-    <div className="h-full">
-      <Line
-        data={{
-          labels: temp.map((t) => t.time?.split(" ")[1] || ""),
-          datasets: [
-            {
-              label: "Temperature",
-              data: temp.map((t) => t.value),
-              borderColor: "#f97316",
-              backgroundColor: "rgba(249,115,22,0.2)",
-              tension: 0.4,
-              pointRadius: 2,
-            },
-            {
-              label: "Vibration",
-              data: vib.map((v) => v.value),
-              borderColor: "#22d3ee",
-              backgroundColor: "rgba(34,211,238,0.2)",
-              tension: 0.4,
-              pointRadius: 2,
-            },
-          ],
-        }}
-        options={{
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: {
-              labels: { color: "#fff" },
-            },
+    <Line
+      key="combined-chart"
+      data={{
+        labels: temp.map((t) => t.time?.split("T")[1]?.slice(0, 8) || ""),
+        datasets: [
+          {
+            label: "Temperature",
+            data: temp.map((t) => t.value),
+            borderColor: "#f97316",
+            tension: 0.2,
+            pointRadius: 2,
           },
-          scales: {
-            x: {
-              ticks: { color: "#ccc" },
-              grid: { color: "#222" },
-            },
-            y: {
-              ticks: { color: "#ccc" },
-              grid: { color: "#222" },
-            },
+          {
+            label: "Vibration",
+            data: vib.map((v) => v.value),
+            borderColor: "#22d3ee",
+            tension: 0.2,
+            pointRadius: 2,
           },
-        }}
-      />
-    </div>
+        ],
+      }}
+      options={{
+        animation: false,
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { labels: { color: "#fff" } },
+        },
+        scales: {
+          x: { ticks: { color: "#ccc" } },
+          y: { ticks: { color: "#ccc" } },
+        },
+      }}
+    />
   );
 }

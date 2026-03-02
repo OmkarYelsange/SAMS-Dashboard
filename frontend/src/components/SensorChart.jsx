@@ -1,71 +1,38 @@
+import "../chartConfig";
 import { Line } from "react-chartjs-2";
-import {
-  Chart as ChartJS,
-  LineElement,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  Tooltip,
-  Legend,
-} from "chart.js";
-
-ChartJS.register(
-  LineElement,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  Tooltip,
-  Legend
-);
 
 export default function SensorChart({ label, values }) {
-  const labels = values.map((v) => {
-    if (!v?.time) return "";
-    const parts = v.time.split(" ");
-    return parts.length > 1 ? parts[1] : "";
-  });
-
-  const dataPoints = values.map((v) => v?.value ?? 0);
-
   return (
-    <Line
-      data={{
-        labels,
-        datasets: [
-          {
-            label,
-            data: dataPoints,
-            borderColor: "#22d3ee",
-            backgroundColor: "rgba(34,211,238,0.15)",
-            tension: 0.4,
-            pointRadius: 3,
-            pointHoverRadius: 5,
-          },
-        ],
-      }}
-      options={{
-        responsive: true,
-        maintainAspectRatio: false,
-        layout: { padding: { bottom: 20 } },
-        plugins: {
-          legend: { labels: { color: "#ffffff" } },
-        },
-        scales: {
-          x: {
-            ticks: {
-              color: "#e5e7eb",
-              maxRotation: 0,
-              minRotation: 0,
-              autoSkip: false,
+    <div className="bg-slate-900 p-5 rounded-xl shadow-lg h-[300px]">
+      <h2 className="mb-2 font-semibold">{label}</h2>
+
+      <Line
+        key={label}
+        data={{
+          labels: values.map((v) => v?.time?.split("T")[1]?.slice(0, 8) || ""),
+          datasets: [
+            {
+              label,
+              data: values.map((v) => v.value),
+              borderColor: "#22d3ee",
+              tension: 0.2,
+              pointRadius: 2,
             },
-            grid: { color: "rgba(255,255,255,0.05)" },
+          ],
+        }}
+        options={{
+          animation: false,
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { labels: { color: "#ffffff" } },
           },
-          y: {
-            ticks: { color: "#e5e7eb" },
-            grid: { color: "rgba(255,255,255,0.05)" },
+          scales: {
+            x: { ticks: { color: "#e5e7eb" } },
+            y: { ticks: { color: "#e5e7eb" } },
           },
-        },
-      }}
-    />
+        }}
+      />
+    </div>
   );
 }
