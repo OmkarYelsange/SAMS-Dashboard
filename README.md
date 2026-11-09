@@ -137,6 +137,3 @@ Omkar Yelsange
 - 📧 Email: [OmkarY](omkaryelsange1010@gmail.com)
 - 🔗 GitHub: [OmkarYelsange](https://github.com/OmkarYelsange)
 - 🔗 LinkedIn: [Omkar-Yelsange](https://linkedin.com/in/omkar-yelsange)
-
-
-If you like this project, please star the repository and share it!
