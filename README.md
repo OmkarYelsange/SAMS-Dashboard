@@ -139,6 +139,4 @@ Omkar Yelsange
 - 🔗 LinkedIn: [Omkar-Yelsange](https://linkedin.com/in/omkar-yelsange)
 
 
-⭐ Support
-
 If you like this project, please star the repository and share it!
